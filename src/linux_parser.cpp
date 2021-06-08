@@ -96,7 +96,9 @@ int LinuxParser::TotalProcesses() { return 0; }
 int LinuxParser::RunningProcesses()
 {
   std::ifstream stream(kProcDirectory + kVersionFilename);
-  std::string line;
+  string line;
+  string key;
+  string value;
   if (stream.is_open()) {
     while (std::getline(stream, line)) {
       std::replace(line.begin(), line.end(), ' ', '_');
