@@ -104,7 +104,6 @@ int LinuxParser::RunningProcesses()
       while (linestream >> key >> value) {
         if (key == "procs_running") {
           std::cerr<<key<<"="<<value<<std::endl;
-          std::replace(value.begin(), value.end(), '_', ' ');
           return std::stoi(value);
         }
       }
