@@ -70,13 +70,12 @@ vector<int> LinuxParser::Pids() {
 // TODO: Read and return the system memory utilization
 float LinuxParser::MemoryUtilization() {
   long MemTotal{1},MemFree{1};
-  std::ifstream stream(kProcDirectory + kStatFilename);
+  std::ifstream stream(kProcDirectory + kMeminfoFilename);
   string line;
   string key;
   string value;
     while (std::getline(stream, line)) {
       std::istringstream linestream(line);
-      std::cerr<<key;
       while (linestream >> key >> value) {
         if (key == "MemTotal:") {
           MemTotal=std::stoi(value);
