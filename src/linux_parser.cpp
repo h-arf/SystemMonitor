@@ -85,7 +85,7 @@ float LinuxParser::MemoryUtilization() {
         }
       }
     }
-  return MemTotal - MemFree;
+  return (MemTotal - MemFree)/MemTotal;
 }
 
 //  Read and return the system uptime
