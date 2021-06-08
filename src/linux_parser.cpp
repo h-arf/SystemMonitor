@@ -100,9 +100,6 @@ int LinuxParser::RunningProcesses()
   string key;
   string value;
     while (std::getline(stream, line)) {
-      std::replace(line.begin(), line.end(), ' ', '_');
-      std::replace(line.begin(), line.end(), '=', ' ');
-      std::replace(line.begin(), line.end(), '"', ' ');
       std::istringstream linestream(line);
       while (linestream >> key >> value) {
         if (key == "procs_running") {
