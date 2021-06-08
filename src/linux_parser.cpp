@@ -99,7 +99,6 @@ int LinuxParser::RunningProcesses()
   string line;
   string key;
   string value;
-  if (stream.is_open()) {
     while (std::getline(stream, line)) {
       std::replace(line.begin(), line.end(), ' ', '_');
       std::replace(line.begin(), line.end(), '=', ' ');
@@ -113,7 +112,6 @@ int LinuxParser::RunningProcesses()
         }
       }
     }
-  }
   return -1;
 }
 
