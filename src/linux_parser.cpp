@@ -103,7 +103,7 @@ int LinuxParser::RunningProcesses()
       std::istringstream linestream(line);
       while (linestream >> key >> value) {
         if (key == "procs_running") {
-          std::cerr<<key<<"="<<value<<std::endl;
+          std::cerr<<key<<"="<<value<<std::endl<<line<<std::cerr;
           return std::stoi(value);
         }
       }
