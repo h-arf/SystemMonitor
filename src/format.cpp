@@ -8,17 +8,16 @@ using std::to_string;
 // INPUT: Long int measuring seconds
 // OUTPUT: HH:MM:SS
 // REMOVE: [[maybe_unused]] once you define the function
-string Format::ElapsedTime(long s) {
-#ifdef DEBUG_PRINT
-    std::cerr<<"star s is: "<<s<<std::endl;
-#endif
-    double m,h;
-    h=s/3600;
-    m=(h-(long)h)*60;
-    s=(m-(long)m)*60;
-    string r;
-#ifdef DEBUG_PRINT
-    std::cerr<<h<<":"<<m<<":"<<s<<std::endl;
-#endif
-    return to_string((long)h)+":"+to_string((long)m)+":"+to_string(s);
+#define SEC_IN_MIN 60
+#define MIN_IN_HR 60
+#define SEC_IN_HR (SEC_IN_MIN * MIN_IN_HR)
+string Format::ElapsedTime(long seconds) {
+    long hours, minutes;
+    hours = seconds/SEC_IN_HR;
+    seconds = seconds%SEC_IN_HR;
+    minutes = seconds/SEC_IN_MIN;
+    seconds = seconds%SEC_IN_MIN;
+    string secs=std::to_string(seconds);
+    secs.insert(0, 2 - secs.length(), '0');
+    return (std::to_string(hours) + ":" + std::to_string(minutes) + ":" + secs);
 }
