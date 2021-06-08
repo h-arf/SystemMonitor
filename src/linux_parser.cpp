@@ -96,7 +96,21 @@ int LinuxParser::TotalProcesses() { return 0; }
 int LinuxParser::RunningProcesses()
 {
   std::ifstream stream(kProcDirectory + kVersionFilename);
-  return 0;
+  std::stream line;
+  if (stream.is_open()) {
+    while (std::getline(stream, line)) {
+      std::replace(line.begin(), line.end(), ' ', '_');
+      std::replace(line.begin(), line.end(), '=', ' ');
+      std::replace(line.begin(), line.end(), '"', ' ');
+      std::istringstream linestream(line);
+      while (linestream >> key >> value) {
+        if (key == "procs_running") {
+          std::replace(value.begin(), value.end(), '_', ' ');
+          return std::stoi(value);
+        }
+      }
+    }
+    return -1;
 }
 
 // TODO: Read and return the command associated with a process
