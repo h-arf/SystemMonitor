@@ -106,7 +106,9 @@ int LinuxParser::TotalProcesses()
       std::istringstream linestream(line);
       while (linestream >> key >> value) {
         if (key == "processes") {
+          #ifdef DEBUG_PRINT
           std::cerr<<key<<"="<<value<<std::endl<<line<<std::endl;
+          #endif
           return std::stoi(value);
         }
       }
