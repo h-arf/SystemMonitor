@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
+#include <iostream>
 #include "linux_parser.h"
 
 using std::stof;
@@ -107,6 +107,7 @@ int LinuxParser::RunningProcesses()
       std::istringstream linestream(line);
       while (linestream >> key >> value) {
         if (key == "procs_running") {
+          std::cerr<<key<<"="<<value<<std:endl;
           std::replace(value.begin(), value.end(), '_', ' ');
           return std::stoi(value);
         }
