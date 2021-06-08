@@ -88,7 +88,7 @@ float LinuxParser::MemoryUtilization() {
         }
       }
     }
-  std::cerr<<1.0 - (MemFree / (MemTotal - Buffers))<<std::endl;
+  std::cerr<<MemFree<<" "<<MemTotal<<" "<<Buffers<<std::endl<<1.0 - (MemFree / (MemTotal - Buffers))<<std::endl;
   return  1.0 - (MemFree / (MemTotal - Buffers));
 }
 
