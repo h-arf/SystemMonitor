@@ -21,7 +21,7 @@ Processor& System::Cpu(){
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes()
 {
-    if (processes_.size()<0){
+    if (processes_.size()<1){
         //TODO: processes_=LinuxParser::Pids();
     }
     return processes_;
@@ -30,7 +30,7 @@ vector<Process>& System::Processes()
 
 std::string System::Kernel()
 {
-    if (kernel_.size()<0){
+    if (kernel_.size()<1){
         kernel_=LinuxParser::Kernel();
     }
     return kernel_;
@@ -42,7 +42,7 @@ float System::MemoryUtilization() { return 0.0; }
 
 std::string System::OperatingSystem()
 {
-    if (os_.size()<0){
+    if (os_.size()<1){
         os_=LinuxParser::OperatingSystem();
     }
     return os_;
