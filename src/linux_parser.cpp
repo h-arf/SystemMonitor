@@ -88,8 +88,8 @@ float LinuxParser::MemoryUtilization() {
         }
       }
     }
-  std::cerr<<MemFree<<" "<<MemTotal<<" "<<Buffers<<std::endl<<1.0 - (MemFree / (MemTotal - Buffers))<<std::endl;
-  return  1.0 - (MemFree / (MemTotal - Buffers));
+  std::cerr<<MemFree<<" "<<MemTotal<<" "<<Buffers<<std::endl<<1.0d - (MemFree / (MemTotal - Buffers))<<std::endl;
+  return  1.0d - (MemFree / (MemTotal - Buffers));
 }
 
 //  Read and return the system uptime
