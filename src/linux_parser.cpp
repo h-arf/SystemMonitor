@@ -112,7 +112,8 @@ int LinuxParser::RunningProcesses()
         }
       }
     }
-    return -1;
+  }
+  return -1;
 }
 
 // TODO: Read and return the command associated with a process
