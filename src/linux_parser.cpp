@@ -95,7 +95,7 @@ int LinuxParser::TotalProcesses() { return 0; }
 // TODO: Read and return the number of running processes
 int LinuxParser::RunningProcesses()
 {
-  std::ifstream stream(kProcDirectory + kVersionFilename);
+  std::ifstream stream(kProcDirectory + kStatFilename);
   string line;
   string key;
   string value;
