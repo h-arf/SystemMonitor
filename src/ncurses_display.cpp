@@ -16,7 +16,7 @@ using std::to_string;
 // 2% is one bar(|)
 std::string NCursesDisplay::ProgressBar(float percent) {
   std::cerr<<percent<<std::endl;
-  std::string result{"0%"};
+  std::string result{""};
   int size{50};
   float bars{percent * size};
 
