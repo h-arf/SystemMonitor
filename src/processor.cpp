@@ -16,5 +16,6 @@ float Processor::Utilization()
     long double t_d=tt-prev_total;
     prev_idle=idle;
     prev_total=tt;
+    std::cerr<<(float)(1.0-(t_d/i_d))<<std::endl;
     return (float)(1.0-(t_d/i_d));
 }
