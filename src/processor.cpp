@@ -13,5 +13,5 @@ float Processor::Utilization()
     unsigned long long t_d=tt-prev_total;
     prev_idle=idle;
     prev_total=tt;
-    return t_d/(long double)i_d;
+    return 1-0-t_d/(long double)i_d;
 }
