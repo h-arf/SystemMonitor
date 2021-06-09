@@ -11,7 +11,7 @@ float Processor::Utilization()
     std::vector<unsigned long long> r=LinuxParser::CpuUtilization();
     unsigned long long tt=std::accumulate(r.begin(), r.end(), 0ll);
     long double idle=r[3];
-    std::cerr<<tt<<" "<<idle<<std::endl;
+    std::cerr<<tt<<" "<<idle<<" "<<r[3]<<std::endl;
     long double i_d=idle-prev_idle;
     long double t_d=tt-prev_total;
     std::cerr<<t_d<<" "<<i_d<<std::endl;
