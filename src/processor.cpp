@@ -8,5 +8,10 @@ float Processor::Utilization()
     //from https://stackoverflow.com/questions/23367857/accurate-calculation-of-cpu-usage-given-in-percentage-in-linux
     std::vector<unsigned long long> r=LinuxParser::CpuUtilization();
     unsigned long long tt{(r[0])+(r[1])+(r[2])+(r[3])+(r[4])+(r[5])+(r[6])+(r[7])+(r[8])+(r[9])};
-    return tt/(long double)r[3];
+    unsigned long long idle=r[3];
+    unsigned long long i_d=idle-prev_idle;
+    unsigned long long t_d=total-prev_total;
+    prev_idle=idle;
+    prev_total=tt;
+    return t_d/(long double)i_d;
 }
