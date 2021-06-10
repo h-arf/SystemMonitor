@@ -196,8 +196,8 @@ std::vector<std::string> LinuxParser::CpuUtilization(int pid)
   int n=1;
   string t;
   while (n<23){
+    stream>>t;
     if ((n>=14&&n<18)||n==22){
-      stream>>t;
       r.push_back(t);
     }
     n++;
