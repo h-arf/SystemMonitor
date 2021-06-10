@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <unistd.h>
+#include <iostream>
 #include "process.h"
 #include "linux_parser.h"
 using std::string;
