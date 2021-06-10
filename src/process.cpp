@@ -11,14 +11,17 @@ using std::string;
 using std::to_string;
 using std::vector;
 
+Process::Process(int pid){
+    pid_=pid;
+}
 // TODO: Return this process's ID
-int Process::Pid() { return 0; }
+int Process::Pid() { return pid_; }
 
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization(){
     long Hertz=sysconf(_SC_CLK_TCK);
     vector<string> vs;
-    LinuxParser::CpuUtilization(10);
+    LinuxParser::CpuUtilization(Pid());
     unsigned long utime,stime;
     long cutime,cstime;
     unsigned long long starttime;

@@ -21,8 +21,9 @@ Processor& System::Cpu(){
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes()
 {
-    if (processes_.size()<1){
-        //TODO: processes_=LinuxParser::Pids();
+    processes_.clear();
+    for (auto x:LinuxParser::Pids()){
+        processes_.push_back(x);
     }
     return processes_;
 }
