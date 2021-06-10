@@ -22,7 +22,7 @@ float Process::CpuUtilization(){
     long Hertz=sysconf(_SC_CLK_TCK);
     vector<string> vs=LinuxParser::CpuUtilization(Pid());
     unsigned long utime=std::stoul(vs[0]),stime=std::stoul(vs[1]);
-    long cutime=std::stol(vs[2]),std::stol(cstime=vs[3]);
+    long cutime=std::stol(vs[2]),cstime=std::stol(vs[3]);
     unsigned long long starttime=std::stoull(vs[4]);
     unsigned long long total_time = utime + stime + cutime + cstime;
     long seconds = LinuxParser::UpTime() - (starttime / Hertz);
