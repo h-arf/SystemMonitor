@@ -21,9 +21,9 @@ int Process::Pid() { return pid_; }
 float Process::CpuUtilization(){
     long Hertz=sysconf(_SC_CLK_TCK);
     vector<string> vs=LinuxParser::CpuUtilization(Pid());
-    unsigned long utime,stime;
-    long cutime,cstime;
-    unsigned long long starttime;
+    unsigned long utime=vs[0],stime=vs[1];
+    long cutime=vs[2],cstime=vs[3];
+    unsigned long long starttime=vs[4];
     unsigned long long total_time = utime + stime + cutime + cstime;
     long seconds = LinuxParser::UpTime() - (starttime / Hertz);
     return (float)((total_time / Hertz) / seconds);
