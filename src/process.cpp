@@ -21,13 +21,13 @@ int Process::Pid() { return pid_; }
 float Process::CpuUtilization(){
     long Hertz=sysconf(_SC_CLK_TCK);
     vector<string> vs=LinuxParser::CpuUtilization(Pid());
-    unsigned long utime=std::stoul(vs[0]),stime=std::stoul(vs[1]);
+    unsigned long utime=std::stoul(vs[0]), stime=std::stoul(vs[1]);
     long cutime=std::stol(vs[2]),cstime=std::stol(vs[3]);
     unsigned long long starttime=std::stoull(vs[4]);
     std::cerr<<utime<<" "<<stime<<" "<<cutime<<" "<<cstime<<" "<<starttime<<" "<<LinuxParser::UpTime()<<" "<<Hertz<<std::endl;
     unsigned long long total_time = utime + stime + cutime + cstime;
     long seconds = LinuxParser::UpTime() - (float)(starttime / Hertz);
-    return (float)((total_time / Hertz) / seconds);
+    return 100*((total_time / Hertz) / seconds);
 }
 
 // TODO: Return the command that generated this process
