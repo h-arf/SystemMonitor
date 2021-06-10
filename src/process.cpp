@@ -24,7 +24,7 @@ float Process::CpuUtilization(){
     unsigned long utime=std::stoul(vs[0]),stime=std::stoul(vs[1]);
     long cutime=std::stol(vs[2]),cstime=std::stol(vs[3]);
     unsigned long long starttime=std::stoull(vs[4]);
-    std::cerr<<utime<<" "<<stime<<" "<<cutime<<" "<<cstime<<" "<<starttime<<" "<<LinuxParser::UpTime()<<std::endl;
+    std::cerr<<utime<<" "<<stime<<" "<<cutime<<" "<<cstime<<" "<<starttime<<" "<<LinuxParser::UpTime()<<" "<<Hertz<<std::endl;
     unsigned long long total_time = utime + stime + cutime + cstime;
     long seconds = LinuxParser::UpTime() - (float)(starttime / Hertz);
     return (float)((total_time / Hertz) / seconds);
