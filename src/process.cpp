@@ -26,7 +26,7 @@ float Process::CpuUtilization(){
     unsigned long long starttime;
     unsigned long long total_time = utime + stime + cutime + cstime;
     long seconds = LinuxParser::UpTime() - (starttime / Hertz);
-    return ((total_time / Hertz) / seconds);
+    return (float)((total_time / Hertz) / seconds);
 }
 
 // TODO: Return the command that generated this process
