@@ -18,7 +18,7 @@ int Process::Pid() { return 0; }
 float Process::CpuUtilization(){
     long Hertz=sysconf(_SC_CLK_TCK);
     vector<string> vs;
-    LinuxParser::CpuUtilization(pid_);
+    LinuxParser::CpuUtilization(10);
     unsigned long utime,stime;
     long cutime,cstime;
     unsigned long long starttime;
