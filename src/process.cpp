@@ -25,7 +25,7 @@ float Process::CpuUtilization(){
     long cutime,cstime;
     unsigned long long starttime;
     total_time = utime + stime + cutime + cstime;
-    seconds = LinuxParser::UpTime() - (starttime / Hertz);
+    long seconds = LinuxParser::UpTime() - (starttime / Hertz);
     return ((total_time / Hertz) / seconds);
 }
 
