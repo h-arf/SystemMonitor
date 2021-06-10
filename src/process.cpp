@@ -22,6 +22,7 @@ float Process::CpuUtilization(){
     long cutime,cstime;
     unsigned long long starttime;
     std::cerr<<vs.size()<<std::endl;
+    return 0.0;
 }
 
 // TODO: Return the command that generated this process
