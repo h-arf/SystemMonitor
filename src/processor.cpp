@@ -7,7 +7,7 @@
 // TODO: Return the aggregate CPU utilization
 float Processor::Utilization()
 {
-    //from https://stackoverflow.com/questions/23367857/accurate-calculation-of-cpu-usage-given-in-percentage-in-linux
+    //from the link provided to roseta code
     std::vector<unsigned long> r=LinuxParser::CpuUtilization();
     unsigned long tt=std::accumulate(r.begin(), r.end(), 0ll);
     unsigned long idle=r[3];

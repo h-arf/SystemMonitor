@@ -3,9 +3,9 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
+#include <unistd.h>
 #include "process.h"
-
+#include "linux_parser.h"
 using std::string;
 using std::to_string;
 using std::vector;
@@ -14,7 +14,14 @@ using std::vector;
 int Process::Pid() { return 0; }
 
 // TODO: Return this process's CPU utilization
-float Process::CpuUtilization() { return 0; }
+float Process::CpuUtilization(){
+    long Hertz=sysconf(_SC_CLK_TCK);
+    vector<string> vs=LinuxParser::CpuUtilization(pid_);
+    unsigned long utime,stime;
+    long cutime,cstime;
+    unsigned long long starttime;
+    std::cerr<<vs.size()<<std::endl;
+}
 
 // TODO: Return the command that generated this process
 string Process::Command() { return string(); }
