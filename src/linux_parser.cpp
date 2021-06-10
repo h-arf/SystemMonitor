@@ -189,7 +189,7 @@ string LinuxParser::User(int pid[[maybe_unused]]) { return string(); }
 // REMOVE: [[maybe_unused]] once you define the function
 long LinuxParser::UpTime(int pid[[maybe_unused]]) { return 0; }
 
-std::vector<std::string> LinuxParser::CpuUtilization(int pid)
+std::vector<std::string> const LinuxParser::CpuUtilization(int pid)
 {
   std::ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);
   vector<string> r{};
