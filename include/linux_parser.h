@@ -52,7 +52,7 @@ std::string Ram(int pid);
 std::string Uid(int pid);
 std::string User(int pid);
 long int UpTime(int pid);
-std::vector<std::string> CpuUtilization(int);//because they represent diferent data types
+std::vector<std::string> const CpuUtilization(int) ;//because they represent diferent data types
 };  // namespace LinuxParser
 
 #endif
