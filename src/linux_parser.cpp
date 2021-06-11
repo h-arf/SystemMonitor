@@ -196,7 +196,6 @@ int LinuxParser::Uid(int pid)
         if (key == "Uid:") {
           return std::stoi(value);
         }
-        }
       }
     }
   return -1;
