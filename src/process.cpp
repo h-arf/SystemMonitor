@@ -7,6 +7,8 @@
 #include <iostream>
 #include "process.h"
 #include "linux_parser.h"
+#include <sys/types.h>
+#include <pwd.h>
 using std::string;
 using std::to_string;
 using std::vector;
@@ -42,7 +44,14 @@ string Process::Command()
 string Process::Ram() { return string(); }
 
 // TODO: Return the user (name) that generated this process
-string Process::User() { return string(); }
+string Process::User()
+{
+    struct passwd *pws;
+    if((pws = getpwuid(uid))<0){
+        return to_string(uid);
+    }
+    return pws->pw_name;
+}
 
 // TODO: Return the age of this process (in seconds)
 long int Process::UpTime() { return 0; }
