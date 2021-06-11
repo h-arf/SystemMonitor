@@ -16,7 +16,9 @@ Process::Process(int pid){
 }
 // TODO: Return this process's ID
 int Process::Pid() { return pid_; }
-
+bool cmp(const Process &a, const Process &b){
+    return a.CpuUtilization()>b.puUtilization();
+}
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization() const{
     long Hertz=sysconf(_SC_CLK_TCK);
@@ -47,4 +49,4 @@ long int Process::UpTime() { return 0; }
 
 // TODO: Overload the "less than" comparison operator for Process objects
 // REMOVE: [[maybe_unused]] once you define the function
-bool Process::operator<(Process const& a) const { return CpuUtilization()<a.CpuUtilization(); }
+//bool Process::operator<(Process const& a) const { return CpuUtilization()<a.CpuUtilization(); }

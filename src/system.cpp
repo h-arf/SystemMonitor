@@ -27,7 +27,7 @@ vector<Process>& System::Processes()
         processes_.push_back(x);
     }
     vector<Process> t=processes_;
-    std::sort(processes_.begin(),processes_.end());
+    std::sort(processes_.begin(),processes_.end(),cmp);
     return processes_;
 }
 
