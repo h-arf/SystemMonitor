@@ -198,7 +198,6 @@ string LinuxParser::Ram(int pid[[maybe_unused]]) {
     }
   return -1;
 }
-}
 
 // TODO: Read and return the user ID associated with a process
 // REMOVE: [[maybe_unused]] once you define the function
