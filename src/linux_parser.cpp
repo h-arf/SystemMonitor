@@ -207,7 +207,18 @@ int LinuxParser::Uid(int pid)
 
 // TODO: Read and return the uptime of a process
 // REMOVE: [[maybe_unused]] once you define the function
-long LinuxParser::UpTime(int pid[[maybe_unused]]) { return 0; }
+long LinuxParser::UpTime(int pid){
+  std::ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);
+  int n=1;
+  while (n<23){
+    stream>>t;
+    if (n==22){
+      return to_string(t);
+    }
+    n++;
+  }
+  return -1;
+}
 
 std::vector<std::string> const LinuxParser::CpuUtilization(int pid)
 {
