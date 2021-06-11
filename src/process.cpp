@@ -48,7 +48,7 @@ string Process::User()
 {
     int uid=LinuxParser::Uid(pid_);
     struct passwd *pws;
-    if((pws = getpwuid(uid))<0){
+    if((pws = getpwuid(uid))==NULL){
         return to_string(uid);
     }
     return pws->pw_name;
