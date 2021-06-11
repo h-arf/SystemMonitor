@@ -191,7 +191,7 @@ string LinuxParser::Ram(int pid)
       while (linestream >> key) {
         if (key == "VmSize:") {
           linestream>>value;
-          return to_string(value*1024);
+          return to_string((int)value/1024);
         }
       }
     }
