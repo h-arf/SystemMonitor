@@ -214,7 +214,7 @@ long LinuxParser::UpTime(int pid){
   while (n<23){
     stream>>t;
     if (n==22){
-      return to_string(t);
+      return stol(t);
     }
     n++;
   }
