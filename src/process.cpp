@@ -46,6 +46,7 @@ string Process::Ram() { return string(); }
 // TODO: Return the user (name) that generated this process
 string Process::User()
 {
+    int uid=LinuxParser::Uid(pid_);
     struct passwd *pws;
     if((pws = getpwuid(uid))<0){
         return to_string(uid);
