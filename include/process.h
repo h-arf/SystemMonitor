@@ -21,5 +21,5 @@ class Process {
  private:
     int pid_{0};
 };
-bool cmp(const Process &a, const Process &b)
+bool cmp(const Process &a, const Process &b);
 #endif
