@@ -29,7 +29,7 @@ float Process::CpuUtilization() const{
     //std::cerr<<utime<<" "<<stime<<" "<<cutime<<" "<<cstime<<" "<<starttime<<" "<<LinuxParser::UpTime()<<" "<<Hertz<<std::endl;
     unsigned long long total_time = utime + stime;// + cutime + cstime;
     float seconds = LinuxParser::UpTime() - (float)(starttime / Hertz);
-    return (float)((total_time ) / seconds);
+    return (float)(((total_time ) / seconds)/100);
 }
 
 // TODO: Return the command that generated this process
