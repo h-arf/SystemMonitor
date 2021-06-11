@@ -83,9 +83,7 @@ float LinuxParser::MemoryUtilization() {
         else if (key=="MemFree:"){
           MemFree=std::stoi(value);
         }
-        else if (key=="Buffers:"){
-          Buffers=std::stoi(value);
-        }
+        
       }
     }
   return (float)(MemTotal-MemFree)/MemTotal;
