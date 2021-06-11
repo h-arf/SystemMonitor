@@ -74,7 +74,7 @@ void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
   for (int i = 0; i < n; ++i) {
     // Clear the line
     mvwprintw(window, ++row, pid_column, (string(window->_maxx-2, ' ').c_str()));
-    std::cerr<<processes[i].CpuUtilization() * 100<<std::endl;
+    std::cerr<<processes[i].CpuUtilization() * 100<<processes[i].Pid()<<" ";
     mvwprintw(window, row, pid_column, to_string(processes[i].Pid()).c_str());
     mvwprintw(window, row, user_column, processes[i].User().c_str());
     float cpu = processes[i].CpuUtilization() * 100;
@@ -85,6 +85,7 @@ void NCursesDisplay::DisplayProcesses(std::vector<Process>& processes,
     mvwprintw(window, row, command_column,
               processes[i].Command().substr(0, window->_maxx - 46).c_str());
   }
+  std::cerr<<std::endl;
 }
 
 void NCursesDisplay::Display(System& system, int n) {
