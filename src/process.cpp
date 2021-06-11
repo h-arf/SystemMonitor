@@ -25,9 +25,17 @@ bool cmp(const Process &a, const Process &b){
 float Process::CpuUtilization() const{
     long Hertz=sysconf(_SC_CLK_TCK);
     vector<string> vs=LinuxParser::CpuUtilization(pid_);
-    unsigned long utime=std::stoul(vs[0]), stime=std::stoul(vs[1]);
+    try
+    {
+        unsigned long utime=std::stoul(vs[0]), stime=std::stoul(vs[1]);
+        unsigned long long starttime=std::stoull(vs[4]);
+    }
+    catch(const std::invalid_argument& e)
+    {
+        return -1;
+    }
+    
     //long cutime=std::stol(vs[2]),cstime=std::stol(vs[3]);
-    unsigned long long starttime=std::stoull(vs[4]);
     //std::cerr<<utime<<" "<<stime<<" "<<cutime<<" "<<cstime<<" "<<starttime<<" "<<LinuxParser::UpTime()<<" "<<Hertz<<std::endl;
     unsigned long long total_time = utime + stime;// + cutime + cstime;
     float seconds = LinuxParser::UpTime() - (float)(starttime / Hertz);
