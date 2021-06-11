@@ -17,7 +17,7 @@ Process::Process(int pid){
 // TODO: Return this process's ID
 int Process::Pid() { return pid_; }
 bool cmp(const Process &a, const Process &b){
-    return a.CpuUtilization()>b.puUtilization();
+    return a.CpuUtilization()>b.CpuUtilization();
 }
 // TODO: Return this process's CPU utilization
 float Process::CpuUtilization() const{
