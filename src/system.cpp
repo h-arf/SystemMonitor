@@ -28,7 +28,6 @@ vector<Process>& System::Processes()
     }
     vector<Process> t=processes_;
     std::sort(processes_.begin(),processes_.end());
-    std::cerr<<(t==processes_);
     return processes_;
 }
 
