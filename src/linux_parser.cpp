@@ -210,6 +210,7 @@ int LinuxParser::Uid(int pid)
 long LinuxParser::UpTime(int pid){
   std::ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);
   int n=1;
+  string t;
   while (n<23){
     stream>>t;
     if (n==22){
