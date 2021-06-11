@@ -28,7 +28,7 @@ vector<Process>& System::Processes()
     }
     vector<string> t=processes_;
     std::sort(processes_.begin(),processes_.end());
-    std::cerr<<t==processes_;
+    std::cerr<<(t==processes_);
     return processes_;
 }
 
